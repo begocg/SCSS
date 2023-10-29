@@ -1,21 +1,23 @@
 {
+  "plugins": [
+    "stylelint-itcss",
+    "stylelint-selector-bem-pattern"
+  ],
     "extends": "stylelint-config-standard",
     "rules": {
-      "selector-class-pattern": [
-        "^([a-z][a-z0-9]*)(__([a-z0-9-]+))?(--([a-z0-9-]+))?$",
-        {
-          "message": "Los nombres de clases deben seguir la convención BEM (Block__Element--Modifier)"
-        }
-      ],
-  
-      "order/order": [
-        "custom-properties",
-        "dollar-variables",
-        "at-variables",
-        "declarations",
-        "at-rules",
-        "rules"
-      ]
+      "at-rule-no-unknown": null,
+      "import-notation": null,
+      "itcss/no-at-important": true,
+      "itcss/no-variable-declaration": false,
+      "itcss/no-mixin-declaration": true,
+      "plugin/selector-bem-pattern": {
+        "componentName": "[A-Z]+",
+        "componentSelectors": {
+          "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+          "combined": "^\\.combined-{componentName}-[a-z]+$"
+        },
+        "utilitySelectors": "^\\.util-[a-z]+$"
+      }
     }
   }
   
