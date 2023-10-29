@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: $font-family;
 }
 
 body {
@@ -13,31 +14,135 @@ body {
   line-height: 24px;
   background-color: $bg;
   color: $highlightcolor;
+    
+  p {
+    color: black;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
 }
 
-
-.footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
+ 
+.introduction {
+  margin-bottom: 10px;
   text-align: center;
-}
-
-.header {
-  margin-top: 1rem;
-  text-align: center;
-  img {
-    width: 50%;
+  
+  i {
+    color: $highlightcolor;
   }
 }
-
+ 
 .cards {
-  text-align: center;
-  .title {
-    margin-bottom: 5%;
+  display:flex;
+  flex-direction:column;
+
+  .category {
+    font-style: italic;
   }
+
+  .card {
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+    border-radius:15px;
+  }
+   
+  .title {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: larger;
+  }
+   
   img {
     width: 50%;
+    height: auto;
+    border: 1px solid black;
+  }
 
+  .summary {
+    background: $highlightcolor;
+    border-radius:0 0 15px 15px;
+    margin-top: 1rem;
+    padding: 10px;
+    text-align:center;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+   
+  a::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+   }
+
+}
+
+@media (width >= 1280px) {
+  .cards {
+   flex-flow: row wrap;
+   justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(16.666% - 10px);
+    flex-direction: column;
+
+    img {
+      width: auto;
+      height: 200px;
+    }
+    
+    .title {
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      margin: 10px 10px 30px;
+    }
+
+    .summary {
+      height: 40px;
+    }
+    
 
   }
+}
+
+@media (width <= 1280px) and (width >= 600) {
+  .cards {
+    flex-flow: row wrap;
+    justify-content: space-between;
+   }
+  
+   .card {
+    width: calc(30% - 10px);
+    flex-direction: column;
+
+    img {
+      width: auto;
+      height: 200px;
+    }
+    
+    .title {
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      margin: 10px 10px 30px;
+    }
+
+    .summary {
+      height: 40px;
+    }
+    
+
+  }
+   
+   
 }
